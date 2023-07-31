@@ -134,6 +134,9 @@ static Route onGenerateRoute<T extends Object>(RouteSettings settings) {
       },
     );
   }
+
+///使用
+onGenerateRoute: onGenerateRoute
 ```
 
 ## onGenerateInitialRoutes
@@ -149,3 +152,39 @@ onGenerateInitialRoutes: (initialRoute) {
 },
 ```
 
+## onUnknownRoute
+
+找不到路由的回调，如果在onGenerateRoute中处理了并且不返回null，则其不会回调。
+
+```dart
+///拦截静态注册表
+static Route? onGenerateRoute<T extends Object>(RouteSettings settings) {
+    if (settings.name == null || routes[settings.name] == null) {
+      return null;   ///对其中不存在的路由没有处理，直接返回null，则会回调onUnknownRoute方法
+    }
+    return MaterialPageRoute<T>(
+      settings: settings,
+      builder: (context) {
+        Widget widget = routes[name]!(context);
+        return widget;
+      },
+    );
+  }
+
+///如果onGenerateRoute不对找不到的路由做处理，就会回调该方法。如果onGenerateRoute处理了，就不回掉该方法
+  static Route unKnownRoute<T extends Object>(RouteSettings settings) {
+    return MaterialPageRoute<T>(
+      settings: settings,
+      builder: (context) {
+        return routes[noFoundPage]!(context);
+      },
+    );
+  }
+
+///使用
+onUnknownRoute: unKnownRoute
+```
+
+## navigatorObservers
+
+监听路由的

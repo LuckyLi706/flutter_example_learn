@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteHelper.homePage,
       onGenerateRoute: RouteHelper.onGenerateRoute,
       onUnknownRoute: RouteHelper.unKnownRoute,
-      onGenerateInitialRoutes: (initialRoute) {
-        return [
-          //MaterialPageRoute(builder: (_) => const MaterialAppPage()),
-          MaterialPageRoute(builder: (_) => const MainPage()),
-        ];
-      },
+      // onGenerateInitialRoutes: (initialRoute) {
+      //   return [
+      //     //MaterialPageRoute(builder: (_) => const MaterialAppPage()),
+      //     MaterialPageRoute(builder: (_) => const MainPage()),
+      //   ];
+      // },
       navigatorObservers: [NewRouteObserver()],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

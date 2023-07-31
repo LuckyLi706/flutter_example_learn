@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 abstract class BasePageState<T extends StatefulWidget> extends State<T> {
   @override
   Widget build(BuildContext context) {
+    initData();
     return Scaffold(
         appBar: isNeedAppBar() ? appBar() : null,
         body: isNeedBasicWidget()
@@ -16,6 +17,9 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T> {
                 width: MediaQuery.of(context).size.width, child: initWidget())
             : initWidget());
   }
+
+  ///初始化数据
+  void initData() {}
 
   ///初始化Widget
   @protected
@@ -34,6 +38,8 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T> {
   ///可以实现该方法来自定义appBar
   PreferredSizeWidget? appBar() {
     return AppBar(
+      leading: appLeft(),
+      automaticallyImplyLeading: appLeft() == null,
       elevation: 0,
       backgroundColor: Colors.blue.shade400,
       title: Text(appBarTitle()),
@@ -43,5 +49,10 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T> {
   ///appBar的颜色
   String appBarTitle() {
     return '';
+  }
+
+  ///返回
+  Widget? appLeft() {
+    return null;
   }
 }

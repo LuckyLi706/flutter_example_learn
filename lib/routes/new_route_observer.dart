@@ -29,7 +29,9 @@ class NewRouteObserver extends RouteObserver<Route<dynamic>> {
 
   @override
   void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
-
+    if (kDebugMode) {
+      print('didRemove:route:${route.toString()},previousRoute:${previousRoute.toString()}');
+    }
   }
 
   @override
@@ -39,13 +41,15 @@ class NewRouteObserver extends RouteObserver<Route<dynamic>> {
 
   @override
   void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
-
+    if (kDebugMode) {
+      print('didReplace:newRoute:${newRoute.toString()},oldRoute:${oldRoute.toString()}');
+    }
   }
 
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     if (kDebugMode) {
-      print('didPush:route:${route.toString()},previousRoute:${previousRoute.toString()}');
+      print('didPop:route:${route.toString()},previousRoute:${previousRoute.toString()}');
     }
   }
 
