@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_example_learn/constants.dart';
 import 'package:flutter_example_learn/ui/main/page/main_page.dart';
 import 'package:flutter_example_learn/ui/no_found_page.dart';
-import 'package:flutter_example_learn/ui/route/page/static_route_page.dart';
-import 'package:flutter_example_learn/ui/route/page/static_route_test_page.dart';
+import 'package:flutter_example_learn/ui/route/page/route_page.dart';
+import 'package:flutter_example_learn/ui/route/page/route_test_page.dart';
 import 'package:flutter_example_learn/ui/widget/page/material_app_page.dart';
 
 /// @Classname route_helper
@@ -17,6 +17,9 @@ class RouteHelper {
 
   ///materialApp页面
   static const String materialAppPage = '/materialApp';
+
+  ///路由页面
+  static const String routePage = '/route';
 
   ///静态路由页面
   static const String staticRoutePage = '/staticRoute';
@@ -34,8 +37,8 @@ class RouteHelper {
   static Map<String, WidgetBuilder> routes = {
     homePage: (context) => const MainPage(),
     materialAppPage: (context) => const MaterialAppPage(),
-    staticRoutePage: (context) => const StaticRoutePage(),
-    staticRouteTestPage: (context) => const StaticRouteTestPage(),
+    routePage: (context) => const RoutePage(),
+    staticRouteTestPage: (context) => const RouteTestPage(),
     noFoundPage: (context) => const NoFoundPage()
   };
 

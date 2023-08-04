@@ -187,4 +187,66 @@ onUnknownRoute: unKnownRoute
 
 ## navigatorObservers
 
-监听路由的
+监听路由的行为
+
+```dart
+/// 定义
+class NewRouteObserver extends RouteObserver<Route<dynamic>> {
+  
+  ///执行了push动作 
+  @override
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    if (kDebugMode) {
+      print('didPush:route:${route.toString()},previousRoute:${previousRoute.toString()}');
+    }
+  }
+
+  @override
+  void didStopUserGesture() {
+
+  }
+
+  @override
+  void didStartUserGesture(Route<dynamic> route, Route<dynamic>? previousRoute) {
+
+  }
+
+  ///执行了remove动作 
+  @override
+  void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    if (kDebugMode) {
+      print('didRemove:route:${route.toString()},previousRoute:${previousRoute.toString()}');
+    }
+  }
+
+  @override
+  void unsubscribe(RouteAware routeAware) {
+
+  }
+
+  ///执行了replace动作  
+  @override
+  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
+    if (kDebugMode) {
+      print('didReplace:newRoute:${newRoute.toString()},oldRoute:${oldRoute.toString()}');
+    }
+  }
+
+  ///执行了pop动作
+  @override
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    if (kDebugMode) {
+      print('didPop:route:${route.toString()},previousRoute:${previousRoute.toString()}');
+    }
+  }
+
+  @override
+  void subscribe(RouteAware routeAware, Route route) {
+
+  }
+}
+
+///使用
+navigatorObservers: [NewRouteObserver()],
+```
+

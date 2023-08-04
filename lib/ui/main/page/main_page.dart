@@ -30,9 +30,9 @@ class _MainPageState extends BasePageState<MainPage> {
           Navigator.of(context).pushNamed(RouteHelper.materialAppPage);
         }),
         const CommonText('Route'),
-        CommonButton('静态路由', () {
+        CommonButton('静态路由和动态路由', () {
           //RouteHelper.push(const MaterialAppPage());
-          Navigator.of(context).pushNamed(RouteHelper.staticRoutePage);
+          Navigator.of(context).pushNamed(RouteHelper.routePage);
         }),
         CommonButton('动态路由', () {
           //RouteHelper.push(const MaterialAppPage());

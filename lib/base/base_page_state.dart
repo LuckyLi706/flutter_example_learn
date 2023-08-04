@@ -41,7 +41,6 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T> {
       leading: appLeft(),
       automaticallyImplyLeading: appLeft() == null,
       elevation: 0,
-      backgroundColor: Colors.blue.shade400,
       title: Text(appBarTitle()),
     );
   }

@@ -8,8 +8,6 @@ import 'package:flutter/material.dart';
 /// @Description TODO
 class NewRouteObserver extends RouteObserver<Route<dynamic>> {
 
-
-
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     if (kDebugMode) {
