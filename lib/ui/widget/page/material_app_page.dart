@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_example_learn/base/base_page_state.dart';
 import 'package:flutter_example_learn/common/widget/common_button.dart';
 import 'package:flutter_example_learn/common/widget/common_text.dart';
+import 'package:flutter_example_learn/generated/l10n.dart';
+import 'package:flutter_example_learn/ui/widget/notifer/change_locale_notifier.dart';
 import 'package:flutter_example_learn/ui/widget/notifer/change_theme_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +12,7 @@ import 'package:provider/provider.dart';
 /// @Date 2023/7/30 10:26
 /// @Created by lijie
 /// @Email jackyli706@gmil.com
-/// @Description TODO
+/// @Description 初始化配置
 class MaterialAppPage extends StatefulWidget {
   const MaterialAppPage({super.key});
 
@@ -35,12 +37,23 @@ class _MaterialAppPage extends BasePageState<MaterialAppPage> {
   Widget initWidget() {
     return Column(
       children: [
-        const CommonText('主题切换'),
+        CommonText(S.of(context).theme_change),
         Wrap(
           spacing: 10,
           runSpacing: 10,
           children: _getListWidget(),
-        )
+        ),
+        CommonText(
+            '${S.of(context).current_language}：${Provider.of<ChangeLocaleNotifier>(context).locale.languageCode}-${Provider.of<ChangeLocaleNotifier>(context).locale.countryCode}'),
+        CommonButton(S.of(context).locale_change, () {
+          ChangeLocaleNotifier notifier =
+              Provider.of<ChangeLocaleNotifier>(context, listen: false);
+          if (notifier.locale.languageCode == 'en') {
+            notifier.locale = const Locale('zh', 'CN');
+          } else {
+            notifier.locale = const Locale('en', 'US');
+          }
+        })
       ],
     );
   }

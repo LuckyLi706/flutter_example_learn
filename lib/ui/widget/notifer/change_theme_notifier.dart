@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// @Author   lijie@baidu-mgame.com
 /// @Date     2023/8/3 10:48
-/// @Description
+/// @Description 主题切换
 class ChangeThemeNotifier extends ChangeNotifier {
   ThemeData _themeData = ThemeData(
 

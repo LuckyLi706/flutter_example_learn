@@ -1,0 +1,12 @@
+{
+  "app_title": "learn Flutter",
+  "main_page": "main page",
+  "widget": "Widget",
+  "static_dynamic_route": "static route and dynamic route",
+  "theme_change": "change theme",
+  "current_language": "current language",
+  "locale_change": "changeLocale",
+  "route": "Route",
+  "static_route": "static route",
+  "dynamic_route": "dynamic route"
+}

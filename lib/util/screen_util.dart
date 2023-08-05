@@ -14,6 +14,11 @@ class ScreenUtil {
         .top;
   }
 
+  /// appBar的高度
+  static double appBarHeight() {
+    return kToolbarHeight;
+  }
+
   ///屏幕的高度
   static double screenHeight() {
     return MediaQuery.of(Constants.navigatorGlobalKey.currentContext!)

@@ -1,0 +1,12 @@
+{
+  "app_title": "学习Flutter",
+  "main_page": "主页",
+  "widget": "视图",
+  "route": "路由",
+  "static_dynamic_route": "静态路由和动态路由",
+  "theme_change": "主题切换",
+  "current_language": "当前语言",
+  "locale_change": "语言切换",
+  "static_route": "静态路由",
+  "dynamic_route": "动态路由"
+}

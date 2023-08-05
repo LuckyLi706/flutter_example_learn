@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_example_learn/base/base_page_state.dart';
 import 'package:flutter_example_learn/common/widget/common_button.dart';
 import 'package:flutter_example_learn/common/widget/common_text.dart';
-import 'package:flutter_example_learn/constants.dart';
+import 'package:flutter_example_learn/generated/l10n.dart';
 import 'package:flutter_example_learn/routes/route_helper.dart';
 import 'package:flutter_example_learn/ui/route/page/route_test_page.dart';
 
@@ -11,7 +10,7 @@ import 'package:flutter_example_learn/ui/route/page/route_test_page.dart';
 /// @Date 2023/7/30 23:04
 /// @Created by lijie
 /// @Email jackyli706@gmil.com
-/// @Description 静态路由页面
+/// @Description 静态路由和动态路由页面
 class RoutePage extends StatefulWidget {
   const RoutePage({super.key});
 
@@ -27,7 +26,7 @@ class _RoutePageState extends BasePageState<RoutePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const CommonText('静态路由'),
+        CommonText(S.of(context).static_route),
         CommonButton('pushNamed', () async {
           result = await Navigator.pushNamed(
               context, RouteHelper.staticRouteTestPage,
@@ -62,8 +61,7 @@ class _RoutePageState extends BasePageState<RoutePage> {
               arguments: 3);
           setState(() {});
         }),
-
-        const CommonText('动态路由'),
+        CommonText(S.of(context).dynamic_route),
         CommonButton('push', () async {
           result = await Navigator.push(context,
               MaterialPageRoute(builder: (context) {
@@ -105,6 +103,6 @@ class _RoutePageState extends BasePageState<RoutePage> {
 
   @override
   String appBarTitle() {
-    return '静态路由和动态路由';
+    return S.of(context).static_dynamic_route;
   }
 }
