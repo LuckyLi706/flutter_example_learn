@@ -8,5 +8,8 @@
   "locale_change": "changeLocale",
   "route": "Route",
   "static_route": "static route",
-  "dynamic_route": "dynamic route"
+  "dynamic_route": "dynamic route",
+  "route_animation": "route animation",
+  "other": "other",
+  "multi_thread": "multi thread"
 }

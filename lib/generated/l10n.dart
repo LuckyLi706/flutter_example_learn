@@ -149,6 +149,36 @@ class S {
       args: [],
     );
   }
+
+  /// `route animation`
+  String get route_animation {
+    return Intl.message(
+      'route animation',
+      name: 'route_animation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `other`
+  String get other {
+    return Intl.message(
+      'other',
+      name: 'other',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `multi thread`
+  String get multi_thread {
+    return Intl.message(
+      'multi thread',
+      name: 'multi_thread',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

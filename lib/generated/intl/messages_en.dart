@@ -28,7 +28,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "dynamic_route": MessageLookupByLibrary.simpleMessage("dynamic route"),
         "locale_change": MessageLookupByLibrary.simpleMessage("changeLocale"),
         "main_page": MessageLookupByLibrary.simpleMessage("main page"),
+        "multi_thread": MessageLookupByLibrary.simpleMessage("multi thread"),
+        "other": MessageLookupByLibrary.simpleMessage("other"),
         "route": MessageLookupByLibrary.simpleMessage("Route"),
+        "route_animation":
+            MessageLookupByLibrary.simpleMessage("route animation"),
         "static_dynamic_route": MessageLookupByLibrary.simpleMessage(
             "static route and dynamic route"),
         "static_route": MessageLookupByLibrary.simpleMessage("static route"),

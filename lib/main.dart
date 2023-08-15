@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_example_learn/constants.dart';
 import 'package:flutter_example_learn/routes/new_route_observer.dart';
 import 'package:flutter_example_learn/routes/route_helper.dart';
@@ -96,7 +97,7 @@ class MyApp extends StatelessWidget {
       // color: Colors.yellow,
       theme: Provider.of<ChangeThemeNotifier>(context).themeData,
 
-      ///国际化
+      ///国际化（使用AndroidStudio 里面的Flutter Intl的插件）
       locale: Provider.of<ChangeLocaleNotifier>(context).locale,
       localizationsDelegates: const [
         S.delegate,
@@ -116,6 +117,46 @@ class MyApp extends StatelessWidget {
           return locale;
         }
       },
+
+      ///调试模式是否显示 Material 网格，不知道有什么用
+      debugShowMaterialGrid: false,
+
+      ///会展示GPU、CPU的统计信息
+      ///https://flutter.cn/docs/perf/ui-performance（官网性能分析）
+      showPerformanceOverlay: false,
+      checkerboardRasterCacheImages: false,
+      checkerboardOffscreenLayers: false,
+
+      ///显示语义调试器，会把组件外观显示为外框模式；
+      showSemanticsDebugger: false,
+
+      ///调试模式是否显示 DEBUG 横幅
+      debugShowCheckedModeBanner: true,
+
+      ///键盘快捷键，暂时未研究作用
+      shortcuts: <ShortcutActivator, Intent>{
+        ...WidgetsApp.defaultShortcuts,
+        const SingleActivator(LogicalKeyboardKey.select):
+            const ActivateIntent(),
+      },
+
+      ///暂时不知道用途
+      actions: <Type, Action<Intent>>{
+        ...WidgetsApp.defaultActions,
+        ActivateAction: CallbackAction<Intent>(
+          onInvoke: (Intent intent) {
+            // Do something here...
+            return null;
+          },
+        ),
+      },
+
+      ///滑动的行为，暂时不知道用途
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
+      ),
       // home: const MaterialAppPage(),
     );
   }

@@ -27,7 +27,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "dynamic_route": MessageLookupByLibrary.simpleMessage("动态路由"),
         "locale_change": MessageLookupByLibrary.simpleMessage("语言切换"),
         "main_page": MessageLookupByLibrary.simpleMessage("主页"),
+        "multi_thread": MessageLookupByLibrary.simpleMessage("多线程"),
+        "other": MessageLookupByLibrary.simpleMessage("其他"),
         "route": MessageLookupByLibrary.simpleMessage("路由"),
+        "route_animation": MessageLookupByLibrary.simpleMessage("路由动画"),
         "static_dynamic_route":
             MessageLookupByLibrary.simpleMessage("静态路由和动态路由"),
         "static_route": MessageLookupByLibrary.simpleMessage("静态路由"),

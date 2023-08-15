@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example_learn/anim/route_anim.dart';
 import 'package:flutter_example_learn/constants.dart';
 import 'package:flutter_example_learn/ui/main/page/main_page.dart';
 import 'package:flutter_example_learn/ui/no_found_page.dart';
+import 'package:flutter_example_learn/ui/route/page/route_animation_page.dart';
+import 'package:flutter_example_learn/ui/route/page/route_animation_test_page.dart';
 import 'package:flutter_example_learn/ui/route/page/route_page.dart';
 import 'package:flutter_example_learn/ui/route/page/route_test_page.dart';
 import 'package:flutter_example_learn/ui/widget/page/material_app_page.dart';
@@ -21,6 +24,12 @@ class RouteHelper {
   ///路由页面
   static const String routePage = '/route';
 
+  ///路由动画页面
+  static const String routeAnimPage = '/routeAnim';
+
+  ///路由动画测试页面
+  static const String routeAnimTestPage = '/routeTestAnim';
+
   ///静态路由页面
   static const String staticRoutePage = '/staticRoute';
 
@@ -38,6 +47,8 @@ class RouteHelper {
     homePage: (context) => const MainPage(),
     materialAppPage: (context) => const MaterialAppPage(),
     routePage: (context) => const RoutePage(),
+    routeAnimPage: (context) => const RouteAnimationPage(),
+    routeAnimTestPage: (context) => const RouteAnimationTestPage(),
     staticRouteTestPage: (context) => const RouteTestPage(),
     noFoundPage: (context) => const NoFoundPage()
   };
@@ -47,6 +58,9 @@ class RouteHelper {
     // return ScaleRoute(page: routes[settings.name!]!(Constants.navigatorGlobalKey.currentContext!),settings: settings);
     if (settings.name == null || routes[settings.name] == null) {
       return null;
+    }
+    if (settings.name == routeAnimTestPage) {
+      return SlideRightRoute(page: const RouteAnimationTestPage());
     }
     return MaterialPageRoute<T>(
       settings: settings,
@@ -77,38 +91,4 @@ class RouteHelper {
       MaterialPageRoute(builder: (context) => route),
     );
   }
-}
-
-class ScaleRoute extends PageRouteBuilder {
-  final Widget page;
-  @override
-  final RouteSettings settings;
-
-  ScaleRoute({required this.page, required this.settings})
-      : super(
-          pageBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-          ) =>
-              page,
-          transitionsBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,
-          ) =>
-              ScaleTransition(
-            scale: Tween<double>(
-              begin: 0.0,
-              end: 1.0,
-            ).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: Curves.fastOutSlowIn,
-              ),
-            ),
-            child: child,
-          ),
-        );
 }

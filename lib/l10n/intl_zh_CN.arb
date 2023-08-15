@@ -8,5 +8,8 @@
   "current_language": "当前语言",
   "locale_change": "语言切换",
   "static_route": "静态路由",
-  "dynamic_route": "动态路由"
+  "dynamic_route": "动态路由",
+  "route_animation": "路由动画",
+  "other": "其他",
+  "multi_thread": "多线程"
 }

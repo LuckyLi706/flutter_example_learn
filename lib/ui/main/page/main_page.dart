@@ -4,6 +4,8 @@ import 'package:flutter_example_learn/common/widget/common_button.dart';
 import 'package:flutter_example_learn/common/widget/common_text.dart';
 import 'package:flutter_example_learn/generated/l10n.dart';
 import 'package:flutter_example_learn/routes/route_helper.dart';
+import 'package:flutter_example_learn/ui/other/pages/Isolate_page.dart';
+import 'package:flutter_example_learn/ui/widget/page/scaffold_page.dart';
 
 /// @Classname main_dart
 /// @Date 2023/7/29 21:29
@@ -30,15 +32,26 @@ class _MainPageState extends BasePageState<MainPage> {
           //RouteHelper.push(const MaterialAppPage());
           Navigator.of(context).pushNamed(RouteHelper.materialAppPage);
         }),
+        CommonButton('Scaffold', () {
+          //RouteHelper.push(const MaterialAppPage());
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (route) => const ScaffoldPage()));
+        }),
         CommonText(S.of(context).route),
         CommonButton(S.of(context).static_dynamic_route, () {
           //RouteHelper.push(const MaterialAppPage());
           Navigator.of(context).pushNamed(RouteHelper.routePage);
         }),
-        // CommonButton('动态路由', () {
-        //   //RouteHelper.push(const MaterialAppPage());
-        //   Navigator.of(context).pushNamed('222', arguments: {'222': '222'});
-        // }),
+        CommonButton(S.of(context).route_animation, () {
+          //RouteHelper.push(const MaterialAppPage());
+          Navigator.of(context).pushNamed(RouteHelper.routeAnimPage);
+        }),
+        CommonText(S.of(context).other),
+        CommonButton(S.of(context).multi_thread, () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (route) {
+            return const IsolatePage();
+          }));
+        }),
       ],
     );
   }
