@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_example_learn/constants.dart';
@@ -76,15 +77,7 @@ class MyApp extends StatelessWidget {
       },
 
       ///child相当于当前的页面，可以做一些全局操作
-      builder: (context, child) {
-        return GestureDetector(
-          onTap: () {
-            // Do something when the user taps anywhere in the app
-            print('222');
-          },
-          child: child,
-        );
-      },
+      builder: BotToastInit(),
 
       /// 安卓显示在任务列表中的名字（多语言不需要用这个）
       ///title: Constants.title,

@@ -2,6 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_example_learn/common/widget/common_button.dart';
 import 'package:flutter_example_learn/ui/widget/page/scaffold/app_bar_page.dart';
+import 'package:flutter_example_learn/ui/widget/page/scaffold/bottom_navigation_bar_page.dart';
+import 'package:flutter_example_learn/ui/widget/page/scaffold/drawer_page.dart';
+import 'package:flutter_example_learn/ui/widget/page/scaffold/sliver_app_bar_page.dart';
 
 /// @Author   lijie@baidu-mgame.com
 /// @Date     2023/8/15 18:24
@@ -31,6 +34,21 @@ class _ScaffoldPage extends State<ScaffoldPage> {
             CommonButton('AppBar', () {
               Navigator.of(context).push(MaterialPageRoute(builder: (route) {
                 return const AppBarPage();
+              }));
+            }),
+            CommonButton('SliverAppBar', () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (route) {
+                return const SliverAppBarPage();
+              }));
+            }),
+            CommonButton('BottomNavigationBar', () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (route) {
+                return const BottomNavigationBarPage();
+              }));
+            }),
+            CommonButton('Drawer', () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (route) {
+                return const DrawerPage();
               }));
             })
           ],

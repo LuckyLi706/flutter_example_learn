@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_example_learn/util/platform_util.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -7,8 +8,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 /// @Description 吐司工具类
 class ToastUtil {
   static Future<bool?> showToast(String message) async {
+    ///针对pc端没找到合适的库
     if (PlatformUtil.isPC()) {
-      return null;
+      BotToast.showText(text: message);
+      return true;
     }
     return await Fluttertoast.showToast(
         msg: message,
