@@ -179,6 +179,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Future and Stream`
+  String get future_and_stream {
+    return Intl.message(
+      'Future and Stream',
+      name: 'future_and_stream',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Base Future`
+  String get base_future {
+    return Intl.message(
+      'Base Future',
+      name: 'base_future',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Future Exception`
+  String get exception_future {
+    return Intl.message(
+      'Future Exception',
+      name: 'exception_future',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advanced Future`
+  String get advanced_future {
+    return Intl.message(
+      'Advanced Future',
+      name: 'advanced_future',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `microTask Queue`
+  String get micro_task_queue {
+    return Intl.message(
+      'microTask Queue',
+      name: 'micro_task_queue',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

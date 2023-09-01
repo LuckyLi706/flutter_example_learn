@@ -22,11 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "advanced_future": MessageLookupByLibrary.simpleMessage("高级Future"),
         "app_title": MessageLookupByLibrary.simpleMessage("学习Flutter"),
+        "base_future": MessageLookupByLibrary.simpleMessage("基础Future"),
         "current_language": MessageLookupByLibrary.simpleMessage("当前语言"),
         "dynamic_route": MessageLookupByLibrary.simpleMessage("动态路由"),
+        "future_and_stream":
+            MessageLookupByLibrary.simpleMessage("Future和Stream"),
         "locale_change": MessageLookupByLibrary.simpleMessage("语言切换"),
         "main_page": MessageLookupByLibrary.simpleMessage("主页"),
+        "micro_task_queue": MessageLookupByLibrary.simpleMessage("microTask队列"),
         "multi_thread": MessageLookupByLibrary.simpleMessage("多线程"),
         "other": MessageLookupByLibrary.simpleMessage("其他"),
         "route": MessageLookupByLibrary.simpleMessage("路由"),

@@ -11,5 +11,10 @@
   "dynamic_route": "dynamic route",
   "route_animation": "route animation",
   "other": "other",
-  "multi_thread": "multi thread"
+  "multi_thread": "multi thread",
+  "future_and_stream": "Future and Stream",
+  "base_future":"Base Future",
+  "exception_future":"Future Exception",
+  "advanced_future":"Advanced Future",
+  "micro_task_queue":"microTask Queue"
 }
