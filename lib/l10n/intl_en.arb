@@ -13,8 +13,13 @@
   "other": "other",
   "multi_thread": "multi thread",
   "future_and_stream": "Future and Stream",
-  "base_future":"Base Future",
-  "exception_future":"Future Exception",
-  "advanced_future":"Advanced Future",
-  "micro_task_queue":"microTask Queue"
+  "base_future": "Base Future",
+  "exception_future": "Future Exception",
+  "advanced_future": "Advanced Future",
+  "micro_task_queue": "microTask Queue",
+  "create_stream": "create stream",
+  "transform_stream": "transform stream",
+  "listen_stream": "listen stream",
+  "stream_type": "stream type",
+  "open_source_library": "open source library"
 }

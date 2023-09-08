@@ -229,6 +229,56 @@ class S {
       args: [],
     );
   }
+
+  /// `create stream`
+  String get create_stream {
+    return Intl.message(
+      'create stream',
+      name: 'create_stream',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `transform stream`
+  String get transform_stream {
+    return Intl.message(
+      'transform stream',
+      name: 'transform_stream',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `listen stream`
+  String get listen_stream {
+    return Intl.message(
+      'listen stream',
+      name: 'listen_stream',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `stream type`
+  String get stream_type {
+    return Intl.message(
+      'stream type',
+      name: 'stream_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `open source library`
+  String get open_source_library {
+    return Intl.message(
+      'open source library',
+      name: 'open_source_library',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

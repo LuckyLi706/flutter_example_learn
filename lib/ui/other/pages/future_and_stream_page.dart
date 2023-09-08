@@ -47,8 +47,17 @@ class _FutureStreamPageState extends BasePageState<FutureStreamPage> {
               _microTaskFuture();
             }),
             const CommonText('Stream'),
-            CommonButton('', () {
+            CommonButton(S.of(context).create_stream, () {
               _baseStream();
+            }),
+            CommonButton(S.of(context).transform_stream, () {
+              _transformStream();
+            }),
+            CommonButton(S.of(context).listen_stream, () {
+              _listenStream();
+            }),
+            CommonButton(S.of(context).stream_type, () {
+              _streamType();
             }),
           ],
         ),
@@ -89,32 +98,6 @@ class _FutureStreamPageState extends BasePageState<FutureStreamPage> {
     });
   }
 
-  void _baseStream() {
-    var stream =
-        Stream.fromFuture(Future.delayed(const Duration(seconds: 2), () {
-      return '';
-    }));
-    stream.listen((event) {
-      print(event);
-    });
-
-    Stream<int> stream1= timedCounter(Duration(seconds: 1), 4);
-    stream1.forEach((element) {
-      print(element);
-    });
-    //stream.take(2);
-  }
-
-  Stream<int> timedCounter(Duration interval, [int? maxCount]) async* {
-    int i = 0;
-    while (true) {
-      await Future.delayed(interval);
-      yield i++;
-      print('timedCounter:${i}');
-      if (i == maxCount) break;
-    }
-  }
-
   void _futureException() async {
     ///这边的异常需要使用try..catch捕捉
     try {
@@ -125,9 +108,7 @@ class _FutureStreamPageState extends BasePageState<FutureStreamPage> {
 
     ///回调方式也获取不到异常，必须使用try...catch....
     try {
-      _testException()
-          .then((value) {}, onError: (error) {})
-          .catchError((error) {});
+      _testException().then((value) {}, onError: (error) {}).catchError((error) {});
     } catch (e) {
       print(e.toString());
     }
@@ -206,5 +187,100 @@ class _FutureStreamPageState extends BasePageState<FutureStreamPage> {
     Future.microtask(() {
       print('microtask:2');
     });
+  }
+
+  ///基础的流
+  void _baseStream() {
+    ///通过Future来创建Stream
+    var stream = Stream.fromFuture(Future.delayed(const Duration(seconds: 2), () {
+      return 1;
+    }));
+    stream.listen((event) {
+      print(event);
+    });
+
+    stream.listen((event) {
+      print(event);
+    });
+
+    ///通过迭代器创建Stream
+    var stream_1 = Stream.fromIterable([1, 2, 3, 4]);
+    stream_1.forEach((element) {
+      print(element);
+    });
+
+    ///通过StreamController
+    var controller = StreamController();
+    controller.stream.listen((event) {
+      ///监听消息
+      print(event);
+    });
+    controller.sink.add('嘿嘿'); //发送消息
+  }
+
+  ///流的转换
+  void _transformStream() {
+    Stream stream = Stream.fromIterable([1, 2, 3, 4, 5]);
+
+    ///使用where来对数据进行过滤
+    Stream streamWhere = stream.where((event) => event % 2 == 0);
+    streamWhere.listen((event) {
+      print(event);
+    });
+  }
+
+  ///流的监听
+  void _listenStream() {
+    StreamController streamController = StreamController();
+    StreamSubscription streamSubscription = streamController.stream.listen((event) {
+      print(event);
+    }, onError: (error) {
+      print('error');
+    }, onDone: () {
+      print('onDone');
+    });
+
+    ///发送普通消息
+    streamController.sink.add('ddd');
+
+    ///发送错误消息
+    streamController.sink.addError('error');
+
+    ///发送普通消息
+    streamController.sink.add('ccc');
+
+    ///关闭（会执行监听的onDone方法）
+    streamController.close();
+
+    ///监听的暂停
+    streamSubscription.pause();
+
+    ///监听的运行
+    streamSubscription.resume();
+  }
+
+  void _streamType() {
+    var _controller = StreamController();
+    // _controller.stream.listen((event) {
+    //   print(event);
+    // });
+
+    ///StreamController是个单订阅者，不能多次订阅
+    ///这边会报错  Bad state: Stream has already been listened to.
+    // _controller.stream.listen((event) {
+    //   print(event);
+    // });
+
+    ///转换成多订阅，这样就可以多次订阅了
+    Stream stream = _controller.stream.asBroadcastStream();
+    stream.listen((event) {
+      print(event);
+    });
+
+    stream.listen((event) {
+      print(event);
+    });
+
+    _controller.sink.add('add');
   }
 }

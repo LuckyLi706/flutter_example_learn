@@ -16,5 +16,10 @@
   "base_future": "基础Future",
   "exception _future": "Future异常",
   "advanced_future": "高级Future",
-  "micro_task_queue": "microTask队列"
+  "micro_task_queue": "microTask队列",
+  "create_stream": "创建stream",
+  "transform_stream": "转换stream",
+  "listen_stream": "监听stream",
+  "stream_type": "stream类型",
+  "open_source_library": "开源库"
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example_learn/anim/route_anim.dart';
 import 'package:flutter_example_learn/constants.dart';
-import 'package:flutter_example_learn/ui/main/page/main_page.dart';
+import 'package:flutter_example_learn/ui/main_page.dart';
 import 'package:flutter_example_learn/ui/no_found_page.dart';
 import 'package:flutter_example_learn/ui/route/page/route_animation_page.dart';
 import 'package:flutter_example_learn/ui/route/page/route_animation_test_page.dart';

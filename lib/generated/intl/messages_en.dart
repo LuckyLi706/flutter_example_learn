@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Advanced Future"),
         "app_title": MessageLookupByLibrary.simpleMessage("learn Flutter"),
         "base_future": MessageLookupByLibrary.simpleMessage("Base Future"),
+        "create_stream": MessageLookupByLibrary.simpleMessage("create stream"),
         "current_language":
             MessageLookupByLibrary.simpleMessage("current language"),
         "dynamic_route": MessageLookupByLibrary.simpleMessage("dynamic route"),
@@ -33,11 +34,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Future Exception"),
         "future_and_stream":
             MessageLookupByLibrary.simpleMessage("Future and Stream"),
+        "listen_stream": MessageLookupByLibrary.simpleMessage("listen stream"),
         "locale_change": MessageLookupByLibrary.simpleMessage("changeLocale"),
         "main_page": MessageLookupByLibrary.simpleMessage("main page"),
         "micro_task_queue":
             MessageLookupByLibrary.simpleMessage("microTask Queue"),
         "multi_thread": MessageLookupByLibrary.simpleMessage("multi thread"),
+        "open_source_library":
+            MessageLookupByLibrary.simpleMessage("open source library"),
         "other": MessageLookupByLibrary.simpleMessage("other"),
         "route": MessageLookupByLibrary.simpleMessage("Route"),
         "route_animation":
@@ -45,7 +49,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "static_dynamic_route": MessageLookupByLibrary.simpleMessage(
             "static route and dynamic route"),
         "static_route": MessageLookupByLibrary.simpleMessage("static route"),
+        "stream_type": MessageLookupByLibrary.simpleMessage("stream type"),
         "theme_change": MessageLookupByLibrary.simpleMessage("change theme"),
+        "transform_stream":
+            MessageLookupByLibrary.simpleMessage("transform stream"),
         "widget": MessageLookupByLibrary.simpleMessage("Widget")
       };
 }

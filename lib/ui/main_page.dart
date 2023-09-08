@@ -4,6 +4,8 @@ import 'package:flutter_example_learn/common/widget/common_button.dart';
 import 'package:flutter_example_learn/common/widget/common_text.dart';
 import 'package:flutter_example_learn/generated/l10n.dart';
 import 'package:flutter_example_learn/routes/route_helper.dart';
+import 'package:flutter_example_learn/ui/open_library/pages/permission_page.dart';
+import 'package:flutter_example_learn/ui/open_library/pages/provider_page.dart';
 import 'package:flutter_example_learn/ui/other/pages/Isolate_page.dart';
 import 'package:flutter_example_learn/ui/other/pages/future_and_stream_page.dart';
 import 'package:flutter_example_learn/ui/widget/page/scaffold_page.dart';
@@ -26,7 +28,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends BasePageState<MainPage> {
   @override
   Widget initWidget() {
-    return Column(
+    return SingleChildScrollView(child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CommonText(S.of(context).widget),
@@ -36,8 +38,7 @@ class _MainPageState extends BasePageState<MainPage> {
         }),
         CommonButton('Scaffold', () {
           //RouteHelper.push(const MaterialAppPage());
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (route) => const ScaffoldPage()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (route) => const ScaffoldPage()));
         }),
         CommonText(S.of(context).route),
         CommonButton(S.of(context).static_dynamic_route, () {
@@ -48,10 +49,19 @@ class _MainPageState extends BasePageState<MainPage> {
           //RouteHelper.push(const MaterialAppPage());
           Navigator.of(context).pushNamed(RouteHelper.routeAnimPage);
         }),
+        CommonText(S.of(context).open_source_library),
+        CommonButton('Permission_Handler', () {
+          //RouteHelper.push(const MaterialAppPage());
+          RouteUtil.push(const PermissionPage());
+        }),
+        CommonButton('Provider', () {
+          //RouteHelper.push(const MaterialAppPage());
+          RouteUtil.push(const ProviderPage());
+        }),
         CommonText(S.of(context).other),
         CommonButton(
           S.of(context).multi_thread,
-          () {
+              () {
             Navigator.of(context).push(MaterialPageRoute(builder: (route) {
               return const IsolatePage();
             }));
@@ -59,9 +69,9 @@ class _MainPageState extends BasePageState<MainPage> {
         ),
         CommonButton(S.of(context).future_and_stream, () {
           RouteUtil.push(const FutureStreamPage());
-        })
+        }),
       ],
-    );
+    ),);
   }
 
   @override

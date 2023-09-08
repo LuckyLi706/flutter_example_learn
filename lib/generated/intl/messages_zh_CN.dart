@@ -25,21 +25,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "advanced_future": MessageLookupByLibrary.simpleMessage("高级Future"),
         "app_title": MessageLookupByLibrary.simpleMessage("学习Flutter"),
         "base_future": MessageLookupByLibrary.simpleMessage("基础Future"),
+        "create_stream": MessageLookupByLibrary.simpleMessage("创建stream"),
         "current_language": MessageLookupByLibrary.simpleMessage("当前语言"),
         "dynamic_route": MessageLookupByLibrary.simpleMessage("动态路由"),
         "future_and_stream":
             MessageLookupByLibrary.simpleMessage("Future和Stream"),
+        "listen_stream": MessageLookupByLibrary.simpleMessage("监听stream"),
         "locale_change": MessageLookupByLibrary.simpleMessage("语言切换"),
         "main_page": MessageLookupByLibrary.simpleMessage("主页"),
         "micro_task_queue": MessageLookupByLibrary.simpleMessage("microTask队列"),
         "multi_thread": MessageLookupByLibrary.simpleMessage("多线程"),
+        "open_source_library": MessageLookupByLibrary.simpleMessage("开源库"),
         "other": MessageLookupByLibrary.simpleMessage("其他"),
         "route": MessageLookupByLibrary.simpleMessage("路由"),
         "route_animation": MessageLookupByLibrary.simpleMessage("路由动画"),
         "static_dynamic_route":
             MessageLookupByLibrary.simpleMessage("静态路由和动态路由"),
         "static_route": MessageLookupByLibrary.simpleMessage("静态路由"),
+        "stream_type": MessageLookupByLibrary.simpleMessage("stream类型"),
         "theme_change": MessageLookupByLibrary.simpleMessage("主题切换"),
+        "transform_stream": MessageLookupByLibrary.simpleMessage("转换stream"),
         "widget": MessageLookupByLibrary.simpleMessage("视图")
       };
 }

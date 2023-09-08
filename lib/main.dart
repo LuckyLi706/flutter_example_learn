@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_example_learn/constants.dart';
 import 'package:flutter_example_learn/routes/new_route_observer.dart';
 import 'package:flutter_example_learn/routes/route_helper.dart';
-import 'package:flutter_example_learn/ui/main/page/main_page.dart';
+import 'package:flutter_example_learn/ui/main_page.dart';
 import 'package:flutter_example_learn/ui/widget/notifer/change_locale_notifier.dart';
 import 'package:flutter_example_learn/ui/widget/notifer/change_theme_notifier.dart';
 import 'package:flutter_example_learn/util/platform_util.dart';
