@@ -35,8 +35,9 @@ class _ProviderPageState extends BasePageState<ProviderPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const CommonText('Provider'),
+          const CommonText('Provider（当不需要监听状态改变，下层仅仅是获取上层状态）'),
 
+          ///当不需要监听状态改变，下层仅仅是获取上层状态，使用[Provider].
           ///最基础的 provider 组成，接收一个任意值并暴露它，但是并不会更新UI
           ///lazy 默认为true，为true表示使用值的时候才回去创建对象，为false表示立即创建对象
           ///如果使用已存在的对象，使用Provider.value(value:对象)，
@@ -53,7 +54,9 @@ class _ProviderPageState extends BasePageState<ProviderPage> {
             child: _ProviderWidget(),
           ),
 
-          const CommonText('ChangeNotifierProvider'),
+          const CommonText('ChangeNotifierProvider（需要共享数据，并监听数据发生变化，不需要关心数据的dispose）'),
+
+          ///todo ListenableProvider 这个和ChangeNotifierProvider类似,需要手动管理数据的dispose,暂时未看
           ChangeNotifierProvider<ProviderChangeNotifierModel>.value(
             value: providerChangeNotifierModel,
             child: Column(
@@ -147,35 +150,73 @@ class _ProviderPageState extends BasePageState<ProviderPage> {
             ),
           ),
 
-          const CommonText('ProxyProvider'),
-          ChangeNotifierProvider(
-            create: (context) => ProxyProviderModel(),
+          const CommonText('ProxyProvider（如果两种类型数据，或者多种数据存在依赖关系）'),
 
-            ///我们日常开发中会遇到一种模型嵌套另一种模型、或一种模型的参数用到另一种模型的值、
-            ///或是需要几种模型的值组合成一个新的模型的情况，在这种情况下，就可以使用 ProxyProvider
-            ///ProxyProviderModel发生改变会通知ProxyProviderNewModel，去执行update
-            child: ProxyProvider<ProxyProviderModel, ProxyProviderNewModel>(
-              ///value 为发生改变的那个model（既为ProxyProviderModel）
-              ///previous为上次更新的model，（既ProxyProviderNewModel）第一次为null
-              update: (BuildContext context, value, previous) {
-                return ProxyProviderNewModel(value.name);
-              },
-              child: Column(
-                children: [
-                  Consumer<ProxyProviderModel>(builder: (context, model, child) {
-                    return CommonButton('更新', () {
-                      context.read<ProxyProviderModel>().name = '更新值';
-                    });
-                  }),
-                  Consumer<ProxyProviderNewModel>(builder: (context, model, child) {
-                    return Text(Provider.of<ProxyProviderNewModel>(context).name);
-                  }),
-                ],
-              ),
+          MultiProvider(
+            providers: [
+              ChangeNotifierProvider(create: (context) => ProxyProviderModel()),
+
+              ///我们日常开发中会遇到一种模型嵌套另一种模型、或一种模型的参数用到另一种模型的值、
+              ///或是需要几种模型的值组合成一个新的模型的情况，在这种情况下，就可以使用 ProxyProvider
+              ///ProxyProviderModel发生改变会通知ProxyProviderNewModel，去执行update
+              ProxyProvider<ProxyProviderModel, ProxyProviderNewModel>(
+                ///value 为发生改变的那个model（既为ProxyProviderModel）
+                ///previous为上次更新的model，（既ProxyProviderNewModel）第一次为null
+                update: (BuildContext context, value, previous) {
+                  return ProxyProviderNewModel(value.name);
+                },
+              )
+            ],
+            child: Column(
+              children: [
+                Consumer<ProxyProviderModel>(builder: (context, model, child) {
+                  return CommonButton('更新', () {
+                    model.name = '更新值';
+                  });
+                }),
+                Consumer<ProxyProviderNewModel>(builder: (context, model, child) {
+                  return Text(model.name);
+                }),
+              ],
             ),
           ),
 
-          const CommonText('FutureProvider'),
+          const CommonText('ChangeNotifierProxyProvider（有点不明白）'),
+
+          ///todo 后续了解
+          MultiProvider(
+            providers: [
+              ChangeNotifierProvider<ProxyProviderModel>(create: (context) => ProxyProviderModel()),
+
+              /// 官网链接:https://pub.dev/documentation/provider/latest/provider/ChangeNotifierProxyProvider-class.html
+              /// PREFER using ProxyProvider when possible. 尽可能使用ProxyProvider
+              ChangeNotifierProxyProvider<ProxyProviderModel, ProxyNotifierProviderNewModel>(
+                create: (context) => ProxyNotifierProviderNewModel(),
+
+                ///value 为发生改变的那个model（既为ProxyProviderModel）
+                ///previous为上次更新的model，（既ProxyProviderNewModel）第一次为null
+                update: (BuildContext context, value, previous) {
+                  var proxyModel = ProxyNotifierProviderNewModel();
+                  proxyModel.name = value.name;
+                  return proxyModel;
+                },
+              )
+            ],
+            child: Column(
+              children: [
+                Consumer<ProxyProviderModel>(builder: (context, model, child) {
+                  return CommonButton('更新', () {
+                    model.name = '更新值';
+                  });
+                }),
+                Consumer<ProxyNotifierProviderNewModel>(builder: (context, model, child) {
+                  return Text(model.name);
+                }),
+              ],
+            ),
+          ),
+
+          const CommonText('FutureProvider 监听Future的值,更新UI,只会重建一次'),
 
           ///FutureProvider有一个初始值，接收一个 Future，并在其进入 complete 状态时更新依赖它的组件。
           FutureProvider(
@@ -184,7 +225,7 @@ class _ProviderPageState extends BasePageState<ProviderPage> {
             child: _FutureProviderWidget(),
           ),
 
-          const CommonText('StreamProvider'),
+          const CommonText('StreamProvider 监听流，并暴露出当前的最新值，并多次触发重新构建UI。'),
 
           ///监听流，并暴露出当前的最新值，并多次触发重新构建UI。
           StreamProvider(
