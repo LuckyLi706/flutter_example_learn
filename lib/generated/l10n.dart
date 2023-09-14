@@ -279,6 +279,16 @@ class S {
       args: [],
     );
   }
+
+  /// `layout widget`
+  String get layout {
+    return Intl.message(
+      'layout widget',
+      name: 'layout',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

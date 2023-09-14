@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Future Exception"),
         "future_and_stream":
             MessageLookupByLibrary.simpleMessage("Future and Stream"),
+        "layout": MessageLookupByLibrary.simpleMessage("layout widget"),
         "listen_stream": MessageLookupByLibrary.simpleMessage("listen stream"),
         "locale_change": MessageLookupByLibrary.simpleMessage("changeLocale"),
         "main_page": MessageLookupByLibrary.simpleMessage("main page"),

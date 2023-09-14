@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dynamic_route": MessageLookupByLibrary.simpleMessage("动态路由"),
         "future_and_stream":
             MessageLookupByLibrary.simpleMessage("Future和Stream"),
+        "layout": MessageLookupByLibrary.simpleMessage("布局组件"),
         "listen_stream": MessageLookupByLibrary.simpleMessage("监听stream"),
         "locale_change": MessageLookupByLibrary.simpleMessage("语言切换"),
         "main_page": MessageLookupByLibrary.simpleMessage("主页"),
