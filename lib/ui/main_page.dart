@@ -8,10 +8,9 @@ import 'package:flutter_example_learn/ui/open_library/pages/permission_page.dart
 import 'package:flutter_example_learn/ui/open_library/pages/provider_page.dart';
 import 'package:flutter_example_learn/ui/other/pages/Isolate_page.dart';
 import 'package:flutter_example_learn/ui/other/pages/future_and_stream_page.dart';
+import 'package:flutter_example_learn/ui/widget/page/layout/pages/layout_page.dart';
 import 'package:flutter_example_learn/ui/widget/page/scaffold_page.dart';
 import 'package:flutter_example_learn/util/route_util.dart';
-
-import 'layout/pages/layout_page.dart';
 
 /// @Classname main_dart
 /// @Date 2023/7/29 21:29
@@ -34,7 +33,9 @@ class _MainPageState extends BasePageState<MainPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CommonText(S.of(context).widget),
+          CommonText(S
+              .of(context)
+              .widget),
           CommonButton('MaterialApp', () {
             //RouteHelper.push(const MaterialAppPage());
             Navigator.of(context).pushNamed(RouteHelper.materialAppPage);
@@ -43,19 +44,29 @@ class _MainPageState extends BasePageState<MainPage> {
             //RouteHelper.push(const MaterialAppPage());
             Navigator.of(context).push(MaterialPageRoute(builder: (route) => const ScaffoldPage()));
           }),
-          CommonButton(S.of(context).layout, () {
+          CommonButton(S
+              .of(context)
+              .layout, () {
             RouteHelper.push(const LayoutPage());
           }),
-          CommonText(S.of(context).route),
-          CommonButton(S.of(context).static_dynamic_route, () {
+          CommonText(S
+              .of(context)
+              .route),
+          CommonButton(S
+              .of(context)
+              .static_dynamic_route, () {
             //RouteHelper.push(const MaterialAppPage());
             Navigator.of(context).pushNamed(RouteHelper.routePage);
           }),
-          CommonButton(S.of(context).route_animation, () {
+          CommonButton(S
+              .of(context)
+              .route_animation, () {
             //RouteHelper.push(const MaterialAppPage());
             Navigator.of(context).pushNamed(RouteHelper.routeAnimPage);
           }),
-          CommonText(S.of(context).open_source_library),
+          CommonText(S
+              .of(context)
+              .open_source_library),
           CommonButton('Permission_Handler', () {
             //RouteHelper.push(const MaterialAppPage());
             RouteUtil.push(const PermissionPage());
@@ -64,16 +75,22 @@ class _MainPageState extends BasePageState<MainPage> {
             //RouteHelper.push(const MaterialAppPage());
             RouteUtil.push(const ProviderPage());
           }),
-          CommonText(S.of(context).other),
+          CommonText(S
+              .of(context)
+              .other),
           CommonButton(
-            S.of(context).multi_thread,
-            () {
+            S
+                .of(context)
+                .multi_thread,
+                () {
               Navigator.of(context).push(MaterialPageRoute(builder: (route) {
                 return const IsolatePage();
               }));
             },
           ),
-          CommonButton(S.of(context).future_and_stream, () {
+          CommonButton(S
+              .of(context)
+              .future_and_stream, () {
             RouteUtil.push(const FutureStreamPage());
           }),
         ],
@@ -83,6 +100,8 @@ class _MainPageState extends BasePageState<MainPage> {
 
   @override
   String appBarTitle() {
-    return S.of(context).main_page;
+    return S
+        .of(context)
+        .main_page;
   }
 }
