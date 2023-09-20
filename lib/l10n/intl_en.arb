@@ -22,5 +22,6 @@
   "listen_stream": "listen stream",
   "stream_type": "stream type",
   "open_source_library": "open source library",
-  "layout": "layout widget"
+  "layout": "layout widget",
+  "anim": "animation"
 }

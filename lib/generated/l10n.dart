@@ -289,6 +289,16 @@ class S {
       args: [],
     );
   }
+
+  /// `animation`
+  String get anim {
+    return Intl.message(
+      'animation',
+      name: 'anim',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

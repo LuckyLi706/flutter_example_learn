@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "advanced_future":
             MessageLookupByLibrary.simpleMessage("Advanced Future"),
+        "anim": MessageLookupByLibrary.simpleMessage("animation"),
         "app_title": MessageLookupByLibrary.simpleMessage("learn Flutter"),
         "base_future": MessageLookupByLibrary.simpleMessage("Base Future"),
         "create_stream": MessageLookupByLibrary.simpleMessage("create stream"),

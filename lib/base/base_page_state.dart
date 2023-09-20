@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example_learn/common/widget/common_pc_bar.dart';
+import 'package:flutter_example_learn/constants.dart';
 import 'package:flutter_example_learn/generated/l10n.dart';
+import 'package:flutter_example_learn/ui/main_page.dart';
 import 'package:flutter_example_learn/ui/widget/notifer/change_theme_notifier.dart';
 import 'package:flutter_example_learn/util/platform_util.dart';
 import 'package:flutter_example_learn/util/screen_util.dart';
@@ -16,14 +18,14 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T> {
   Widget build(BuildContext context) {
     initData();
     return Scaffold(
+        key: T is MainPage ? Constants.overlayKey : null,
         appBar: PlatformUtil.isPC()
             ? _pcBarWidget()
             : isNeedAppBar()
                 ? appBar()
                 : null,
         body: isNeedBasicWidget()
-            ? SizedBox(
-                width: MediaQuery.of(context).size.width, child: initWidget())
+            ? SizedBox(width: MediaQuery.of(context).size.width, child: initWidget())
             : initWidget());
   }
 
@@ -57,16 +59,12 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T> {
   ///pc端使用titleBar+appBar
   PreferredSizeWidget _pcBarWidget() {
     return PreferredSize(
-        preferredSize:
-            Size.fromHeight(kWindowCaptionHeight + ScreenUtil.appBarHeight()),
+        preferredSize: Size.fromHeight(kWindowCaptionHeight + ScreenUtil.appBarHeight()),
         child: Column(
           children: [
             CommonPCTitleBar(
               title: Text(S.of(context).app_title),
-              backgroundColor: Provider.of<ChangeThemeNotifier>(context)
-                  .themeData
-                  .colorScheme
-                  .primary,
+              backgroundColor: Provider.of<ChangeThemeNotifier>(context).themeData.colorScheme.primary,
             ),
             AppBar(
               leading: appLeft(),
